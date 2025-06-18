@@ -1,0 +1,29 @@
+.admin-bg-container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.admin-button-container{
+    align-self: center;
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+    
+
+    
+}
+.store-form-text{
+    color: #ffffff;
+    font-size: 18px;
+    background-color: #3a4051;
+    width: fit-content;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 15px;
+    align-self: center;
+}
