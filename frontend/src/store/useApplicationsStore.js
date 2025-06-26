@@ -46,6 +46,7 @@ export const useApplicationsStore = create((set,get)=>({
                 position:'bottom-center'
             });
             } catch (error) {
+            
             console.log("Error fetching createStore in useApplicationsStore:", error);
             
             } finally {
