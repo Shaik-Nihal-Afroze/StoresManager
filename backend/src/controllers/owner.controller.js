@@ -59,7 +59,7 @@ export const addStore = async(req,res)=>{
             
             
             await newStore.save()
-            res.status(201).json({
+            return res.status(201).json({
                     _id:newStore._id,
                     storeName:newStore.storeName,
                     storeimage:newStore.storeimage,
