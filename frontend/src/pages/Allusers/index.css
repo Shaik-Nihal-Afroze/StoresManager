@@ -1,5 +1,5 @@
 .allusers-bg-container{
-    height: 90vh;
+    min-height: 90vh;
     /* width: 50%; */
 }
 
@@ -65,4 +65,58 @@
     background-color: #000000;
     /* border: none; */
 
+}
+
+.all-user-delete-button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    
+}
+
+.user-details-unordered-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 90%;
+    margin:auto;
+    padding: 10px;
+}
+
+.user-details-unordered-list-item{
+    /* display: inline-flex; */
+    background-color: #007a0c;
+    font-size: 15px;
+    list-style-type: none;
+    height: 300px;
+    width: fit-content;
+    min-width: 300px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:4px 0;
+    
+}
+
+.user-info{
+    /* background-color: #007a0c; */
+    font-weight: 500;
+    font-size: 15px;
+    font-style: italic;
+    color: #ffffff;
+    display: inline-block;
+    /* align-self: flex-start;
+    margin-left: 40px; */
+
+}
+
+.user-span{
+    margin-left: 3px;
+    font-weight: normal;
+}
+
+.all-user-delete-button:hover{
+    color:red;
 }

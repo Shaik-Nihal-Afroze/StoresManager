@@ -1,5 +1,17 @@
 import mongoose from "mongoose";
 
+const ratingSchema = new mongoose.Schema({
+    userId :{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User",
+        required:true,
+    },
+    score:{
+        type:Number,
+    }
+
+})
+
 const storeSchema = new mongoose.Schema({
     storeName:{
         type:String,
@@ -23,10 +35,7 @@ const storeSchema = new mongoose.Schema({
         type:String,
         required:true       
     },
-    rating:{
-        type:[Number],
-        default:[],                
-    },
+    ratings:[ratingSchema],
     contact:{
         type:String,
         required:true,

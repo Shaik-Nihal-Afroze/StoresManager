@@ -20,7 +20,7 @@ const Header = () =>{
         <nav className="nav-header">
             <div className='navbar-maincontainer'>
                 <div className="navbar-firstcontainer">
-                    <img src="https://res.cloudinary.com/dze7v0evj/image/upload/v1749575999/Store_explorer_q9miw7.png" className='credit-logo'/>
+                    <img src="https://res.cloudinary.com/dze7v0evj/image/upload/v1749575999/Store_explorer_q9miw7.png" className='header-logo'/>
                     
                     
                 </div>

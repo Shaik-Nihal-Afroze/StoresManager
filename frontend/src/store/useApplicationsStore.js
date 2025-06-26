@@ -32,7 +32,7 @@ export const useApplicationsStore = create((set,get)=>({
             const allOwnerStores =get().allStores
             const fetchedownerStores = allOwnerStores.filter((eachStore)=>eachStore.owner === _id)
             set({ownerStores:fetchedownerStores})
-            console.log(fetchedownerStores)
+            
         } catch (error) {
             console.log('Error fetching in getOwnerStores',error)
         }
@@ -55,10 +55,9 @@ export const useApplicationsStore = create((set,get)=>({
     deleteStore:async(storeName)=>{
         try {
             // const {storeName} = req.body 
-            const updatedStores = await axiosInstance.delete("/admin/deleteStore",{data:{storeName}})
-            set({allStores:updatedStores})
+           await axiosInstance.delete("/admin/deleteStore",{data:{storeName}})
             await get().getStores()
-            await get().getOwnerStores()
+            
             toast.success("Store deleted successfully")
         } catch (error) {
             console.log('Error in deleting store in useApplicationsStore:',error)

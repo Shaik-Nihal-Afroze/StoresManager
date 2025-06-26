@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 // import Header from '../../components/Header/index.jsx'
 import { StoreLayout } from '../../components/StoreLayout/index.jsx'
 import { IoLocationOutline } from "react-icons/io5";
-
+import { MdDelete } from "react-icons/md";
 import { useApplicationsStore } from '../../store/useApplicationsStore.js'
 import { useState,useEffect } from 'react'
 
@@ -13,13 +13,18 @@ import "../StoreOwnerPage/storeOwner.css"
 export const AllStores = ()=>{
     
 
-    const {getStores,allStores} = useApplicationsStore()
+    const {getStores,allStores,deleteStore} = useApplicationsStore()
 
+    const onHandleDeleting = (storeName)=>{
+      deleteStore(storeName)
+    } 
     useEffect(()=>{
-            getStores()
+      getStores()  
             
     },[])
-    console.log({allStores})
+    
+
+    
     return (
          <>
       
@@ -33,9 +38,10 @@ export const AllStores = ()=>{
 
           <ul className='unordered-list'>
             {allStores.map((eachStore)=>{
-              const ratingsArray = eachStore.rating
-              const totalRatings = (ratingsArray.length)-1
-              const averageRating = totalRatings>0?(ratingsArray.reduce((a,b)=>a+b,0)/totalRatings).toFixed(1):0;
+              const ratingsArray = eachStore.ratings || []
+              const totalRatings = (ratingsArray.length)
+              const averageRating = totalRatings>0?(ratingsArray.reduce((a,b)=>a+Number(b.score) || 0,0)/totalRatings).toFixed(1):0;
+              const ratingText = totalRatings<2?'rating':'ratings'
            return(
             <li className="store-item" key  = {eachStore._id}>
                                 <div className="store-card-container">
@@ -52,13 +58,13 @@ export const AllStores = ()=>{
                                             
                                           </div>
                                             
-                                          <p className='totalRatings'>{totalRatings} Ratings</p>
+                                          <p className='totalRatings'>{totalRatings} {ratingText}</p>
                                          
                                         </div>
                                          <p className="store-address"><IoLocationOutline size = {20} /> {eachStore.address}</p>
                                             <p className="store-contact">{eachStore.contact}</p>
                                     </div>
-                                    {/* <button type="button" className='deleteingStore' onClick={()=>onHandleDeleting(eachStore.storeName)} ><MdDelete size = {25}/></button> */}
+                                    <button type="button" className='deleteingStore' onClick={()=>onHandleDeleting(eachStore.storeName)} ><MdDelete size = {25}/></button>
                                 </div>
                             </li>)
           

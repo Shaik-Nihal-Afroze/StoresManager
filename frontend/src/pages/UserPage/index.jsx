@@ -39,7 +39,7 @@ const UserPage = () => {
       setStores(allStores)
     }
     const SubmitReviewForm = ({ storeName ,onreviewSubmit}) => {
-      const [rating, setRating] = useState(0);
+      const [score, setScore] = useState(0);
       const {authUser} = useAuthStore()
       const {_id} = authUser
 
@@ -50,7 +50,8 @@ const UserPage = () => {
         try {
           const updatedRating = await axiosInstance.put(`/users/${_id}/stores/store/${storeName}/rating`, {
             
-            rating,
+            score,
+            userId:_id,
             
           });
           console.log(updatedRating)
@@ -68,7 +69,7 @@ const UserPage = () => {
           
           <label className='rating-label'>
             Rating
-            <select value={rating}  onChange={e => setRating(Number(e.target.value))}>
+            <select value={score}  onChange={e => setScore(Number(e.target.value))}>
               <option value={0} className='select-container'>Select</option>
               {[1, 2, 3, 4, 5].map(star => (
                 <option key={star} value={star} className='select-container'>{star}</option>
@@ -90,9 +91,9 @@ const UserPage = () => {
       <Header/>
        <ul className='unordered-list'>
                   {allStores.map((eachStore)=>{
-                    const ratingsArray = eachStore.rating
-                    const totalRatings = (ratingsArray.length) -1
-                    const averageRating = totalRatings>0?(ratingsArray.reduce((a,b)=>a+b,0)/totalRatings).toFixed(1):0;
+                    const ratingsArray = eachStore.ratings || []
+                    const totalRatings = (ratingsArray.length) 
+                    const averageRating = totalRatings>0?(ratingsArray.reduce((a,b)=>a+Number(b.score) || 0,0)/totalRatings).toFixed(1):0;
                     const ratingText = totalRatings<2?'rating':'ratings'
                     
                  return(

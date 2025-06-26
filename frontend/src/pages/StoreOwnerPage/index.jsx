@@ -53,12 +53,12 @@ const StoreOwner = () => {
         {showStoreForm?<StoreLayout/>:
           <ul className='unordered-list'>
             {stores.map((eachStore)=>{
-              const ratingsArray = eachStore.rating;
-              const totalRatings = (ratingsArray.length)-1
-              const averageRating = totalRatings>0?(ratingsArray.reduce((a,b)=>a+b,0)/totalRatings).toFixed(1):0;
+              const ratingsArray = eachStore.ratings || [];
+              const totalRatings = (ratingsArray.length)
+              const averageRating = totalRatings>0?(ratingsArray.reduce((a,b)=>a+Number(b.score) || 0,0)/totalRatings).toFixed(1):0;
               const ratingText = totalRatings<2?'rating':'ratings'
            return(
-            <li className="store-item" >
+            <li className="store-item" key  = {eachStore.storeName}>
                                 <div className="store-card-container">
                                     {/* <img src = {eachStore.storeimage} className="store-image" alt={eachStore.storeName}/> */}
                                     <div className="store-details-container">

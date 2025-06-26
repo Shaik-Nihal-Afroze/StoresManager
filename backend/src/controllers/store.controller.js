@@ -29,10 +29,10 @@ export const createStore = async(req,res)=>{
                     _id:newStore._id,
                     storeName:newStore.storeName,
                     storeimage:newStore.storeimage,
-                    owner:newStore.owner,
+                    owner:newStore.req.user._id,
                     category:newStore.category,
                     address:newStore.address,
-                    rating:newStore.rating,
+                    ratings:newStore.rating,
                     contact:newStore.contact
                 })
         }

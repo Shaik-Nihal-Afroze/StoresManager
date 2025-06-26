@@ -21,7 +21,7 @@ import SignupPage from './pages/SignUpPage';
 
 import StoreOwner from './pages/StoreOwnerPage';
 
-import "./index.css"
+import "./App.css"
 
 const App =() => {
   const {authUser, isCheckingAuth, checkAuth} = useAuthStore();
@@ -33,13 +33,25 @@ const App =() => {
   }, [checkAuth]);
 
   // console.log({authUser})
-
-
+  
+  const Loader = () => {
+  return (
+    <div className="loader-container">
+      <div className="dot-wave">
+        <div className="dot dot1"></div>
+        <div className="dot dot2"></div>
+        <div className="dot dot3"></div>
+        <div className="dot dot4"></div>
+      </div>
+      <p className="loading-text">Loading the awesomeness...</p>
+    </div>
+  );
+};
   if (isCheckingAuth && !authUser){
     return (
       <div className='loader-container'>
-        <h1 className='loader-heading'>Please Wait ,It seems like the app is taking around 10 to 15 seconds to load... </h1>
-        <ClipLoader color="#123abc" size={50} />;
+        
+        <Loader color="#123abc" size={50} />;
       </div>
     )
   }

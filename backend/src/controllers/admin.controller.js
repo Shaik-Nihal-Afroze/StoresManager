@@ -11,6 +11,20 @@ export const getAllUsers = async(req,res)=>{
         }
 }
 
+export const deleteUser = async(req,res)=>{
+    try {
+        const {userEmail} = req.body
+        if (!userEmail){
+            return res.status(400).json({message:"User Email are required"})
+        }
+        const removeUser = await User.findOneAndDelete({email:userEmail})
+        res.status(200).json({message:`${removeUser.email} deleted Successfully`})
+    } catch (error) {
+         console.log("Error is deleteUser controller in admin controller")
+            res.status(500).json({message:`${error.message}`})
+    }
+}
+
 export const getAllStores = async(req,res)=>{
     try {
        
@@ -80,7 +94,7 @@ export const deleteStore = async(req,res)=>{
         }        
         res.status(200).json({message:"Store deleted Successfully"})
     } catch (error) {
-        console.log("Error is create store controller in store controller")
+        console.log("Error in create store controller in store controller")
         res.status(500).json({message:`${error.message}`})
     }
 }

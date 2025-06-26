@@ -30,7 +30,7 @@ export const StoreLayout = () => {
     if (!formData.address.trim()) return toast.error("Address is required");
     
     if (!formData.contact.trim()) return toast.error("Contact is required");
-    if (formData.contact.length < 10) return toast.error("Contact must be at least 10 characters");
+    if (formData.contact.length < 10) return toast.error("Contact must be of 10 characters");
 
     return true;
   };

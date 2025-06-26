@@ -79,6 +79,17 @@ export const useAuthStore = create((set, get) => ({
       console.log("Error fetching getAllusers controller:", error);
     }
   },
-
+// need to correctly enter the id in deleteUser
+  deleteUser :async(userEmail)=>{
+    try {
+      await axiosInstance.delete("/admin/deleteUser",{data:{userEmail}})
+      const updatedUsers = get().allUsers.filter(user=>user.email!==userEmail)
+      set({allUsers:updatedUsers})
+      // await get().getAllUsers()
+      toast.success("User deleted successfully")
+    } catch (error) {
+      console.log('Error in deleting store in useApplicationsStore:',error)
+    }
+  }
   
 }));
