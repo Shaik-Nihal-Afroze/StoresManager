@@ -47,7 +47,7 @@ export const useApplicationsStore = create((set,get)=>({
             });
             } catch (error) {
             console.log("Error fetching createStore in useApplicationsStore:", error);
-            toast.error(error.response.data.message)
+            toast.error(error?.response?.data?.message || "Something went wrong while creating store")
             } finally {
             set({ creatingStore: false });
             }
