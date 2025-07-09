@@ -43,7 +43,7 @@ const App =() => {
         <div className="dot dot3"></div>
         <div className="dot dot4"></div>
       </div>
-      <p className="loading-text">Loading the awesomeness...</p>
+      <p className="loading-text">Loading the app...⏳ This may take 15–20 seconds.</p>
     </div>
   );
 };
