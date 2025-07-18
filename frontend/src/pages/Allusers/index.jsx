@@ -22,15 +22,15 @@ export const AllUsers = ()=>{
     console.log({allUsers})
    return <div className='allusers-bg-container'>
 
-    <ul className = "user-unordered-list">
+    <ul className = "userfields-unordered-list">
         {allUsersFields.map((eachField)=>{
            return (
-               <li className = "user-unordered-list-item users-field">
+               <li className = "userfields-unordered-list-item">
                    <span className = "user-unordered-span-item">{eachField.id}</span>
                </li>
                                                                                                                                                                                                                                                                    
            )
-        )}}
+   })}
     </ul>
    
     
