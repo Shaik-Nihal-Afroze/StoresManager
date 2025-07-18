@@ -21,7 +21,17 @@ export const AllUsers = ()=>{
     },[])
     console.log({allUsers})
    return <div className='allusers-bg-container'>
-    
+
+    <ul className = "user-unordered-list">
+        {allUsersFields.map((eachField)=>{
+           return (
+               <li className = "user-unordered-list-item users-field">
+                   <span className = "user-unordered-span-item">{eachField.id}</span>
+               </li>
+                                                                                                                                                                                                                                                                   
+           )
+        )
+    </ul>
    
     
     <ul className='user-unordered-list'>
@@ -29,9 +39,9 @@ export const AllUsers = ()=>{
             return (
                 <>
                     <li key={user._id} className='user-unordered-list-item'>
-                    <span>{user.fullName}</span>
-                    <span>{user.email}</span>
-                    <span>{user.role}</span>
+                    <span className = "user-unordered-span-item">{user.fullName}</span>
+                    <span className = "user-unordered-span-item">{user.email}</span>
+                    <span className = "user-unordered-span-item">{user.role}</span>
                     <button type='button' onClick={()=>onHandleDelete(user.email)} className='all-user-delete-button'>
                         <MdDelete size = {25}/>
                     </button>
