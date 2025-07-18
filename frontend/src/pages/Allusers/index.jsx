@@ -24,7 +24,7 @@ export const AllUsers = ()=>{
     
    
     
-    {/* <ul className='user-unordered-list'>
+    <ul className='user-unordered-list'>
         {allUsers.map((user)=>{
             return (
                 <>
@@ -45,8 +45,8 @@ export const AllUsers = ()=>{
                 
             )
         })}
-    </ul> */}
-    <ul className='user-details-unordered-list'>
+    </ul>
+{/*     <ul className='user-details-unordered-list'>
         {allUsers.map((user)=>{
             return (
                 <>
@@ -67,7 +67,7 @@ export const AllUsers = ()=>{
                 
             )
         })}
-    </ul>
+    </ul> */}
     
     </div>
    
