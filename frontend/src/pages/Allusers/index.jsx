@@ -8,7 +8,7 @@ export const AllUsers = ()=>{
     const allUsersFields = [
         {id:'FullName'},
         {id:'Email'},
-        {id:'Role'}
+        {id:'Role'},{id:''}
     ]
     const onHandleDelete = (userEmail)=>{
         deleteUser(userEmail)
