@@ -25,7 +25,7 @@ export const AllUsers = ()=>{
     <ul className = "userfields-unordered-list">
         {allUsersFields.map((eachField)=>{
            return (
-               <li className = "userfields-unordered-list-item">
+               <li className = "user-unordered-list-item">
                    <span className = "user-unordered-span-item">{eachField.id}</span>
                </li>
                                                                                                                                                                                                                                                                    
