@@ -57,6 +57,10 @@
 
 }
 
+.user-unordered-span-item{
+    width:25%;
+    justify-self:flex-start;
+}
 
 
 .separator{
