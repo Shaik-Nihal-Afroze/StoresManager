@@ -66,13 +66,8 @@ export const AllUsers = ()=>{
                     <p className='user-info'>ROLE - <span className='user-span'>{user.role}</span></p>
                     <button type='button' onClick={()=>onHandleDelete(user.email)} className='all-user-delete-button'>
                         <MdDelete size = {25} style= {{color:"#ffffff"}} />
-                    </button>
-                        
-                       
-                    
-                    
-                </li>
-                 
+                    </button>    
+                </li>  
                 </>
                 
             )
