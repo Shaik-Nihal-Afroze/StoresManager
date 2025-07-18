@@ -22,11 +22,11 @@ export const AllUsers = ()=>{
     console.log({allUsers})
    return <div className='allusers-bg-container'>
 
-    <ul className = "userfields-unordered-list field-title">
+    <ul className = "userfields-unordered-list ">
         {allUsersFields.map((eachField)=>{
            return (
                <li className = "user-unordered-list-item">
-                   <span className = "user-unordered-span-item">{eachField.id}</span>
+                   <span className = "user-unordered-span-item field-title">{eachField.id}</span>
                </li>
                                                                                                                                                                                                                                                                    
            )
