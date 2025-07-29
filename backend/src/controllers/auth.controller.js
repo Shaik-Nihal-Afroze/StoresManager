@@ -90,7 +90,7 @@ export const login = async(req,res) =>{
 export const logout  = (req,res) =>{
     
         try{
-            res.clearCookie("jwt",{ 
+            res.clearCookie("jwtToken",{ 
                       httpOnly: true,
                       secure: true,
                       sameSite: 'None',
